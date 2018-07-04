@@ -48,7 +48,7 @@
         <thead>
           <tr>
             %for label in outgoing_hdr:
-            <th>label</th>
+            <th>{{label}}</th>
             %end
           </tr>
         </thead>
