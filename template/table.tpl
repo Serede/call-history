@@ -22,7 +22,7 @@
         <thead>
           <tr>
             %for label in incoming_hdr:
-            <th>label</th>
+            <th>{{label}}</th>
             %end
           </tr>
         </thead>
