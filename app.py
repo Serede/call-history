@@ -8,7 +8,7 @@ from bottle import route, run, template, static_file
 bottle.TEMPLATE_PATH.insert(0, 'template')
 
 
-@route('/call')
+@route('/')
 def call_history():
     conn = sqlite3.connect('call_history.db')
     c = conn.cursor()
@@ -27,4 +27,4 @@ def server_static(filepath):
     return static_file(filepath, root='template')
 
 
-run(port=80, reloader=True)
+run(host='0.0.0.0', port=8008, debug=True, reloader=True)
