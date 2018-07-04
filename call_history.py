@@ -7,6 +7,8 @@ import pandas
 from bs4 import BeautifulSoup
 from sqlalchemy import create_engine, MetaData, Table, Column, String
 
+# Constants
+
 _DBG_ = False
 
 IP = '192.168.1.1'
