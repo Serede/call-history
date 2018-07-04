@@ -1,0 +1,10 @@
+[Unit]
+Description=Call History App
+
+[Service]
+WorkingDirectory=/opt/call-history
+ExecStart=/opt/call-history/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

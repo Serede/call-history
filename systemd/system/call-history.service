@@ -1,0 +1,7 @@
+[Unit]
+Description=Update Call History
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/call-history
+ExecStart=/opt/call-history/call_history.py

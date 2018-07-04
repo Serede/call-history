@@ -1,4 +1,5 @@
 .passwd
 .vscode
+__pycache__
 call_history.db
 venv
