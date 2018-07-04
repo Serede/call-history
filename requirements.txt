@@ -1,5 +1,6 @@
 autopep8
 beautifulsoup4
+bottle
 click
 html5lib
 lxml
