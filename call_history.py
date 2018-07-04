@@ -1,4 +1,4 @@
-# !/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import base64
@@ -28,7 +28,7 @@ with open(PASSWD_FILE) as file:
     sessionKey = base64.b64encode(
         '{user}:{pass}'.format(**{
             'user': USER,
-            'pass': file.readline()
+            'pass': file.readline().rstrip('\n')
         }).encode()
     )
 
