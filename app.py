@@ -17,10 +17,10 @@ def call_history():
     c = conn.cursor()
     c.execute("SELECT * FROM " + TABLE_OUT_NAME)
     outgoing_hdr = list(map(lambda x: x[0].replace('_', ' '), c.description))
-    outgoing = c.fetchall()
+    outgoing = c.fetchall()[::-1]
     c.execute("SELECT * FROM " + TABLE_IN_NAME)
     incoming_hdr = list(map(lambda x: x[0].replace('_', ' '), c.description))
-    incoming = c.fetchall()
+    incoming = c.fetchall()[::-1]
     c.close()
     template_dict = {
         'outgoing_hdr': outgoing_hdr,
