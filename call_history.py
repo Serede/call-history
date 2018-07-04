@@ -17,6 +17,7 @@ CHO_URL = 'http://{ip}/voip/CallHistoryOutgoing.html'.format(**{'ip': IP})
 CHI_URL = 'http://{ip}/voip/CallHistoryIncoming.html'.format(**{'ip': IP})
 USER = '1234'
 PASSWD_FILE = '.passwd'
+DB_FILE = 'call_history.db'
 TABLE_INDEX = -1
 TABLE_TIME_COLNAME = 'time'
 TABLE_OUT_NAME = 'outgoing'
@@ -54,7 +55,6 @@ def read_table(session, url):
     table = soup.find_all('table')[TABLE_INDEX]
     df = pandas.read_html(str(table), header=0, index_col=0)[0]
     df.columns = df.columns.str.replace(' ', '_')
-    df[TABLE_TIME_COLNAME] = pandas.to_datetime(df[TABLE_TIME_COLNAME])
     return df
 
 
@@ -67,7 +67,7 @@ if _DBG_:
 
 # Database
 
-engine = create_engine('sqlite:///call_history.db', echo=_DBG_)
+engine = create_engine('sqlite:///' + DB_FILE, echo=_DBG_)
 
 metadata = MetaData()
 

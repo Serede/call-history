@@ -5,17 +5,20 @@ import sqlite3
 import bottle
 from bottle import route, run, template, static_file
 
+from call_history import DB_FILE, TABLE_OUT_NAME, TABLE_IN_NAME
+
+
 bottle.TEMPLATE_PATH.insert(0, 'template')
 
 
 @route('/')
 def call_history():
-    conn = sqlite3.connect('call_history.db')
+    conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT * FROM outgoing")
+    c.execute("SELECT * FROM " + TABLE_OUT_NAME)
     outgoing_hdr = list(map(lambda x: x[0].replace('_', ' '), c.description))
     outgoing = c.fetchall()
-    c.execute("SELECT * FROM incoming")
+    c.execute("SELECT * FROM " + TABLE_IN_NAME)
     incoming_hdr = list(map(lambda x: x[0].replace('_', ' '), c.description))
     incoming = c.fetchall()
     c.close()
