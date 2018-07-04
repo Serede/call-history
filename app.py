@@ -13,10 +13,10 @@ def call_history():
     conn = sqlite3.connect('call_history.db')
     c = conn.cursor()
     c.execute("SELECT * FROM outgoing")
-    outgoing_hdr = list(map(lambda x: x[0], c.description))
+    outgoing_hdr = list(map(lambda x: x[0].replace('_', ' '), c.description))
     outgoing = c.fetchall()
     c.execute("SELECT * FROM incoming")
-    incoming_hdr = list(map(lambda x: x[0], c.description))
+    incoming_hdr = list(map(lambda x: x[0].replace('_', ' '), c.description))
     incoming = c.fetchall()
     c.close()
     template_dict = {
