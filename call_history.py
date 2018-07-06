@@ -89,10 +89,10 @@ chi.to_sql(TABLE_IN_TMP_NAME, con=engine, if_exists='replace', index=False)
 
 
 def update_table(cur, dst, src):
-    dst.insert().prefix_with('IGNORE').from_select(['*'], select([src]))
+    dst.insert().prefix_with('IGNORE').from_select(['*'], src.select())
 
 
 con = engine.connect()
-update_table(con, TABLE_OUT_NAME, TABLE_OUT_TMP_NAME)
-update_table(con, TABLE_IN_NAME, TABLE_IN_TMP_NAME)
+update_table(con, outgoing, outgoing_tmp)
+update_table(con, incoming, incoming_tmp)
 con.close()
