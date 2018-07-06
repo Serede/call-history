@@ -89,10 +89,7 @@ chi.to_sql(TABLE_IN_TMP_NAME, con=engine, if_exists='replace', index=False)
 
 
 def update_table(cur, dst, src):
-    cur.execute("INSERT IGNORE INTO {dst} SELECT * FROM {src}".format(**{
-        'dst': dst,
-        'src': src
-    }))
+    dst.insert().prefix_with('IGNORE').from_select(['*'], select([src]))
 
 
 con = engine.connect()
