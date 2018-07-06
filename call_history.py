@@ -95,8 +95,7 @@ def update_table(cur, dst, src):
     }))
 
 
-cur = engine.cursor()
-update_table(cur, TABLE_OUT_NAME, TABLE_OUT_TMP_NAME)
-update_table(cur, TABLE_IN_NAME, TABLE_IN_TMP_NAME)
-engine.commit()
-engine.close()
+con = engine.connect()
+update_table(con, TABLE_OUT_NAME, TABLE_OUT_TMP_NAME)
+update_table(con, TABLE_IN_NAME, TABLE_IN_TMP_NAME)
+con.close()
