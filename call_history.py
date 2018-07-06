@@ -78,5 +78,5 @@ incoming = Table(TABLE_IN_NAME, metadata,
 
 metadata.create_all(engine)
 
-cho.to_sql(TABLE_OUT_NAME, con=engine, if_exists='replace', index=False)
-chi.to_sql(TABLE_IN_NAME, con=engine, if_exists='replace', index=False)
+cho.to_sql(TABLE_OUT_NAME, con=engine, if_exists='append', index=False)
+chi.to_sql(TABLE_IN_NAME, con=engine, if_exists='append', index=False)
