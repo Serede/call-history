@@ -22,8 +22,6 @@ TABLE_INDEX = -1
 TABLE_TIME_COLNAME = 'time'
 TABLE_OUT_NAME = 'outgoing'
 TABLE_IN_NAME = 'incoming'
-TABLE_OUT_TMP_NAME = '_' + TABLE_OUT_NAME
-TABLE_IN_TMP_NAME = '_' + TABLE_IN_NAME
 
 # Fetch tables
 
@@ -73,10 +71,6 @@ engine = create_engine('sqlite:///' + DB_FILE, echo=_DBG_)
 
 metadata = MetaData()
 
-outgoing_tmp = Table(TABLE_OUT_TMP_NAME, metadata,
-                     *[Column(name, String, primary_key=True) for name in list(cho)])
-incoming_tmp = Table(TABLE_IN_TMP_NAME, metadata,
-                     *[Column(name, String, primary_key=True) for name in list(chi)])
 outgoing = Table(TABLE_OUT_NAME, metadata,
                  *[Column(name, String, primary_key=True) for name in list(cho)])
 incoming = Table(TABLE_IN_NAME, metadata,
@@ -84,15 +78,6 @@ incoming = Table(TABLE_IN_NAME, metadata,
 
 metadata.create_all(engine)
 
-cho.to_sql(TABLE_OUT_TMP_NAME, con=engine, if_exists='replace', index=False)
-chi.to_sql(TABLE_IN_TMP_NAME, con=engine, if_exists='replace', index=False)
+cho.apply(lambda x: engine.execute(outgoing.insert().prefix_with('OR IGNORE').values(x)), axis=1)
+chi.apply(lambda x: engine.execute(incoming.insert().prefix_with('OR IGNORE').values(x)), axis=1)
 
-
-def update_table(cur, dst, src):
-    dst.insert().prefix_with('IGNORE').from_select(['*'], src.select())
-
-
-con = engine.connect()
-update_table(con, outgoing, outgoing_tmp)
-update_table(con, incoming, incoming_tmp)
-con.close()
