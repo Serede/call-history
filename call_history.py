@@ -78,6 +78,7 @@ incoming = Table(TABLE_IN_NAME, metadata,
 
 metadata.create_all(engine)
 
-cho.apply(lambda x: engine.execute(outgoing.insert().prefix_with('OR IGNORE').values(x)), axis=1)
-chi.apply(lambda x: engine.execute(incoming.insert().prefix_with('OR IGNORE').values(x)), axis=1)
-
+cho.apply(lambda x: engine.execute(
+    outgoing.insert().prefix_with('OR IGNORE').values(x)), axis=1)
+chi.apply(lambda x: engine.execute(
+    incoming.insert().prefix_with('OR IGNORE').values(x)), axis=1)
