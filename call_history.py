@@ -72,9 +72,9 @@ engine = create_engine('sqlite:///' + DB_FILE, echo=_DBG_)
 metadata = MetaData()
 
 outgoing = Table(TABLE_OUT_NAME, metadata,
-                 *[Column(name, String, primary_key=True) for name in list(cho)])
+                 *[Column(name, String, nullable=False) for name in list(cho)])
 incoming = Table(TABLE_IN_NAME, metadata,
-                 *[Column(name, String, primary_key=True) for name in list(chi)])
+                 *[Column(name, String, nullable=False) for name in list(chi)])
 
 metadata.create_all(engine)
 
