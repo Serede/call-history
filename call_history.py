@@ -5,7 +5,7 @@ import base64
 import requests
 import pandas
 from bs4 import BeautifulSoup
-from sqlalchemy import create_engine, MetaData, Table, Column, String
+from sqlalchemy import create_engine, MetaData, Table, Column, String, UniqueConstraint
 
 # Constants
 
@@ -19,9 +19,9 @@ USER = '1234'
 PASSWD_FILE = '.passwd'
 DB_FILE = 'call_history.db'
 TABLE_INDEX = -1
-TABLE_TIME_COLNAME = 'time'
 TABLE_OUT_NAME = 'outgoing'
 TABLE_IN_NAME = 'incoming'
+TABLE_TIME_COLNAME = 'time'
 
 # Fetch tables
 
@@ -55,6 +55,7 @@ def read_table(session, url):
     table = soup.find_all('table')[TABLE_INDEX]
     df = pandas.read_html(str(table), header=0, index_col=0)[0]
     df.columns = df.columns.str.replace(' ', '_')
+    df[TABLE_TIME_COLNAME] = pandas.to_datetime(df[TABLE_TIME_COLNAME]).astype(str)
     return df
 
 
@@ -72,9 +73,11 @@ engine = create_engine('sqlite:///' + DB_FILE, echo=_DBG_)
 metadata = MetaData()
 
 outgoing = Table(TABLE_OUT_NAME, metadata,
-                 *[Column(name, String, nullable=False) for name in list(cho)])
+                 *[Column(name, String, nullable=False) for name in list(cho)],
+                 UniqueConstraint(*list(cho), name='uix'))
 incoming = Table(TABLE_IN_NAME, metadata,
-                 *[Column(name, String, nullable=False) for name in list(chi)])
+                 *[Column(name, String, nullable=False) for name in list(chi)],
+                 UniqueConstraint(*list(cho), name='uix'))
 
 metadata.create_all(engine)
 
