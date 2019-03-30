@@ -56,7 +56,7 @@
 
     <div class="tab-pane fade" id="pills-outgoing" role="tabpanel" aria-labelledby="pills-outgoing-tab">
       <table class="table table-dark table-striped header-fixed">
-        <thead>
+        <thead class="text-uppercase">
           <tr>
             %for label in outgoing_hdr:
             <th scope="col">{{label}}</th>
