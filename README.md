@@ -3,7 +3,7 @@
 ## Description
 Lightweight web service that registers and lists outgoing and incoming VoIP calls from a Mitrastar HGU GPT-2541GNAC device.
 
-Written in Python and powered by [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), [Pandas](https://pandas.pydata.org/), [SQLite](https://www.sqlite.org/) and [Bottle](https://bottlepy.org/).
+Written in Python and powered by [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), [Pandas](https://pandas.pydata.org/), [SQLite](https://www.sqlite.org/), [Bottle](https://bottlepy.org/) and [Bootstrap](https://getbootstrap.com/).
 
 ## Contents
 - `systemd/`: unit files for systemd.
@@ -18,4 +18,3 @@ Written in Python and powered by [Beautiful Soup](https://www.crummy.com/softwar
 
 ## License
 - Code licensed under GNU General Public License v3.0.
-- Template: Copyright (c) 2017 by [Nikhil Krishnan](http://codepen.io/nikhil8krishnan/pen/WvYPvv).
