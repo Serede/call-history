@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="style.css">
 
@@ -22,14 +22,14 @@
 
 <body class="p-3 mb-2 bg-dark text-white">
 
-  <ul class="nav nav-pills mb-3 flex-column flex-sm-row" id="pills-tab" role="tablist">
-    <li class="nav-item flex-sm-fill text-sm-center">
+  <ul class="nav nav-pills mb-3 d-flex" id="pills-tab" role="tablist">
+    <li class="nav-item p-2 flex-grow-1">
       <a class="nav-link active" id="pills-incoming-tab" data-toggle="pill" href="#pills-incoming" role="tab" aria-controls="pills-incoming" aria-selected="true">Incoming</a>
     </li>
-    <li class="nav-item flex-sm-fill text-sm-center">
+    <li class="nav-item p-2 flex-grow-1">
       <a class="nav-link" id="pills-outgoing-tab" data-toggle="pill" href="#pills-outgoing" role="tab" aria-controls="pills-outgoing" aria-selected="false">Outgoing</a>
     </li>
-    <li class="nav-item flex-sm-fill text-sm-center">
+    <li class="nav-item p-2">
       <a class="nav-link active" id="pills-refresh-tab" href="javascript:location.reload(true)"><i class="fas fa-sync-alt"></i></a>
     </li>
   </ul>
@@ -83,9 +83,9 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
