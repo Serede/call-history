@@ -22,14 +22,14 @@
 
 <body class="p-3 mb-2 bg-dark text-white">
 
-  <ul class="nav nav-pills nav-fill nav-justified mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
+  <ul class="nav nav-pills mb-3 flex-column flex-sm-row" id="pills-tab" role="tablist">
+    <li class="nav-item flex-sm-fill text-sm-center">
       <a class="nav-link active" id="pills-incoming-tab" data-toggle="pill" href="#pills-incoming" role="tab" aria-controls="pills-incoming" aria-selected="true">Incoming</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item flex-sm-fill text-sm-center">
       <a class="nav-link" id="pills-outgoing-tab" data-toggle="pill" href="#pills-outgoing" role="tab" aria-controls="pills-outgoing" aria-selected="false">Outgoing</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item flex-sm-fill text-sm-center">
       <a class="nav-link active" id="pills-refresh-tab" href="javascript:location.reload(true)"><i class="fas fa-sync-alt"></i></a>
     </li>
   </ul>
