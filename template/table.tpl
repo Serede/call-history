@@ -22,7 +22,7 @@
 
 <body class="p-3 mb-2 bg-dark text-white">
 
-  <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+  <ul class="nav nav-pills nav-fill nav-justified mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="pills-incoming-tab" data-toggle="pill" href="#pills-incoming" role="tab" aria-controls="pills-incoming" aria-selected="true">Incoming</a>
     </li>
