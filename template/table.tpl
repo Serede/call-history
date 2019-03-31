@@ -9,6 +9,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="style.css">
 
 
@@ -23,12 +24,13 @@
 
   <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="pills-incoming-tab" data-toggle="pill" href="#pills-incoming" role="tab" aria-controls="pills-incoming"
-      aria-selected="true">Incoming</a>
+      <a class="nav-link active" id="pills-incoming-tab" data-toggle="pill" href="#pills-incoming" role="tab" aria-controls="pills-incoming" aria-selected="true">Incoming</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-outgoing-tab" data-toggle="pill" href="#pills-outgoing" role="tab" aria-controls="pills-outgoing"
-      aria-selected="false">Outgoing</a>
+      <a class="nav-link" id="pills-outgoing-tab" data-toggle="pill" href="#pills-outgoing" role="tab" aria-controls="pills-outgoing" aria-selected="false">Outgoing</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-refresh-tab" href="javascript:location.reload(true)"><i class="fas fa-sync-alt"></i></a>
     </li>
   </ul>
 
