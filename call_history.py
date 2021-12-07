@@ -84,12 +84,18 @@ def _update_database(och, ich):
 
     metadata.create_all(engine)
 
-    och.apply(lambda x: engine.execute(
-        outgoing.insert().prefix_with('OR IGNORE').values(x)), axis=1)
-    ich.apply(lambda x: engine.execute(
-        incoming.insert().prefix_with('OR IGNORE').values(x)), axis=1)
+    for o in och.itertuples(index=False):
+        engine.execute(outgoing.insert().prefix_with('OR IGNORE').values(o))
+
+    for i in ich.itertuples(index=False):
+        engine.execute(incoming.insert().prefix_with('OR IGNORE').values(i))
 
 
 def update_call_history():
     tables = _get_tables()
     _update_database(*tables)
+
+
+if __name__ == "__main__":
+    update_call_history()
+
