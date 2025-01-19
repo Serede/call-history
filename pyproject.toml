@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "call-history"
+version = "0.1.0"
+description = "Lightweight web service that registers and lists outgoing and incoming VoIP calls from a Mitrastar HGU GPT-2541GNAC device."
+authors = ["Sergio Fuentes de Uña <serede.dev@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+beautifulsoup4 = "^4.12.3"
+bottle = "^0.13.2"
+pandas = "^2.2.3"
+requests = "^2.32.3"
+sqlalchemy = "^2.0.37"
+lxml = "^5.3.0"
+
+[tool.poetry.scripts]
+app = "app:main"
+call_history = "call_history:update_call_history"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

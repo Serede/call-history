@@ -2,9 +2,10 @@
 Description=Call History App
 
 [Service]
-WorkingDirectory=/opt/call-history
-ExecStart=/opt/call-history/app.py
+WorkingDirectory=%h/call-history
+ExecStart=poetry run app
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
+
